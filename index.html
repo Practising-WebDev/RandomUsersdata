@@ -1,0 +1,137 @@
+<html>
+<head>
+<!-- for moment  -->
+    <script src="https://MomentJS.com/downloads/moment.js"></script>
+        <!-- for map -->
+        <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""
+      />
+      <script
+        src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""
+      ></script>
+
+      <!-- CSS Link  -->
+    <link rel="stylesheet" href="page.css" />
+
+    <title>Test Page</title>
+</head>
+<body>
+<div id="main">
+  <!-- map division -->
+  <div>
+  <div id="mymap"></div>
+  </div>
+  
+  <!-- bottom  -->
+  <div id="bottom">
+      <div id="bottombasic">
+        <img id="largephoto">
+          <span>
+              <span id="yourname">Your name</span>
+              <div id="updateyour">update your photo and personal details</div>
+          </span>
+      </div>
+    
+      <div id="bottomfields">
+          <!-- username  -->
+          <div class="bottomfieldunit">
+              <span class="fieldtitle">Username</span>
+              <span class="fieldinput">
+                  <input type="text" class="fieldinputtext" id="username" value="" size="50" style="height: 40px;"></input>
+              </span>
+              <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Save"></input>
+          </div>
+          <!-- gender  -->
+          <div class="bottomfieldunit">
+            <span class="fieldtitle">Gender</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" id="gender" size="50" style="height: 40px;" value=""></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Edit"></input>
+        </div>
+        <!-- DOB  -->
+        <div class="bottomfieldunit">
+            <span class="fieldtitle">Date of Birth</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" id="DOB" value="" size="50" style="height: 40px;"></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Save"></input>
+        </div>
+        <!-- Number  -->
+        <div class="bottomfieldunit">
+            <span class="fieldtitle">Phone Number</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" id="number" size="50" style="height: 40px;" value=""></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Edit"></input>
+        </div>
+        <!-- address  -->
+        <div class="bottomfieldunit">
+            <span class="fieldtitle">Address</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" id="address" value="" size="50" style="height: 100px;"></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Save"></input>
+        </div>
+        <!-- job title  -->
+        <div class="bottomfieldunit" id="jobtitle">
+            <span class="fieldtitle">Job Title</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" size="50" style="height: 40px;"></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Save"></input>
+            <div id="tickbox">
+                <input type="checkbox" checked>
+                <label>Show my job title in my profile</label><br>
+            </div>
+        </div>
+            <!-- alternate contact email  -->
+        <div class="bottomfieldunit">
+            <span class="fieldtitle">Alternate Email Id</span>
+            <span class="fieldinput">
+                <input type="text" class="fieldinputtext" id="email" value="" size="50" style="height: 40px;"></input>
+            </span>
+            <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" value="Save"></input>
+        </div>
+
+        <!-- A button for calling function -->
+        <!-- <input type="button" class="fieldbutton" style="width: 60px;height: 30px;" onclick="runClick()" value="Run"></input> -->
+      </div>
+  </div>
+</div>
+</body>
+
+<script>
+    async function runClick() {
+      let getdata = await fetch('https://randomuser.me/api/');
+      let converteddata = await getdata.json();
+      document.getElementById("gender").value = converteddata.results[0].gender;
+      document.getElementById("number").value = converteddata.results[0].phone;
+      document.getElementById("yourname").innerHTML = converteddata.results[0].name.title +` ` +converteddata.results[0].name.first +` `+ converteddata.results[0].name.last;
+      document.getElementById("email").value = converteddata.results[0].email;
+      document.getElementById("username").value = converteddata.results[0].login.username;
+      document.getElementById("address").value = converteddata.results[0].location.street.number+`,`+converteddata.results[0].location.street.name+`,`+converteddata.results[0].location.city+`,`+converteddata.results[0].location.state+`,`+converteddata.results[0].location.country+`,`+converteddata.results[0].location.postcode;
+      document.getElementById("largephoto").src = converteddata.results[0].picture.large;
+      var Dateofbirth= converteddata.results[0].dob.date;
+      document.getElementById("DOB").value = moment(Dateofbirth).format("DD/MM/YYYY");
+      let lat=converteddata.results[0].location.coordinates.latitude;
+      let long=converteddata.results[0].location.coordinates.longitude;
+
+    //   map 
+      var mymapview = L.map("mymap").setView([lat, long], 10);
+    var tiles = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          );
+    tiles.addTo(mymapview);
+    L.marker([lat,long]).addTo(mymapview);
+    }
+
+
+    runClick();
+</script>
+</html>

@@ -1,0 +1,59 @@
+#main {
+    margin-left: 200px;
+    width: 1000px;
+    background-color: rgb(250, 250, 250);
+}
+#mymap {
+  height: 20vh;
+  border-radius: 20px;
+}
+#yourname {
+    position: absolute;
+    left: 350px;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#updateyour {
+    position: absolute;
+    font-family:Arial, Helvetica, sans-serif;
+    left: 351px;
+    top: 200px;
+    
+}
+#bottomfields{
+    margin-top: 70px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+img{
+    border-radius: 50%;
+}
+
+.fieldtitle{
+    margin-left: 50px;
+}
+.fieldinput{
+    position:absolute; 
+    left:520px;
+  }
+.fieldinputtext{
+    border-radius: 4px; 
+    border: 1px solid rgb(179, 173, 173); 
+}
+.fieldbutton{
+    position:absolute; 
+    left:950px;
+    border-radius: 3px;
+    border: 1px solid black;
+    background-color: rgb(163, 206, 221);
+}
+#tickbox{
+    margin-left: 310px;
+    margin-top: 30px;
+}
+.bottomfieldunit{
+    margin-bottom: 50px;
+}
+#jobtitle{
+    margin-top: 100px;
+}
