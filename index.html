@@ -116,7 +116,7 @@
       document.getElementById("address").value = converteddata.results[0].location.street.number+`,`+converteddata.results[0].location.street.name+`,`+converteddata.results[0].location.city+`,`+converteddata.results[0].location.state+`,`+converteddata.results[0].location.country+`,`+converteddata.results[0].location.postcode;
       document.getElementById("largephoto").src = converteddata.results[0].picture.large;
       var Dateofbirth= converteddata.results[0].dob.date;
-      document.getElementById("DOB").value = moment(Dateofbirth).format("DD/MM/YYYY");
+      document.getElementById("DOB").value = moment(Dateofbirth).format("DD MMMM YYYY");
       let lat=converteddata.results[0].location.coordinates.latitude;
       let long=converteddata.results[0].location.coordinates.longitude;
 
