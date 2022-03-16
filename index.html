@@ -1,8 +1,8 @@
 <html>
 <head>
-<!-- for moment  -->
+<!-- scripts for moment  -->
     <script src="https://MomentJS.com/downloads/moment.js"></script>
-        <!-- for map -->
+        <!-- scripts for map -->
         <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -23,14 +23,17 @@
 <body>
 <div id="main">
   <!-- map division -->
-  <div>
-  <div id="mymap"></div>
-  </div>
   
-  <!-- bottom  -->
+  <div id="mymap"></div>
+  
+    <!-- bottom  -->
   <div id="bottom">
       <div id="bottombasic">
-        <img id="largephoto" src="nopfp2.png">
+        <img id="largephoto" src="nopfp2.png" style="border-radius: 50%;
+        float: left;
+        padding: 10px;
+        height: 128px;
+        width: 128px;">
           <span>
               <div id="yourname">Your name</div>
               <div id="updateyour">update your photo and personal details</div>
@@ -118,7 +121,7 @@
       let long=converteddata.results[0].location.coordinates.longitude;
 
     //   map 
-      var mymapview = L.map("mymap").setView([lat, long], 10);
+      const mymapview = L.map("mymap").setView([lat, long], 10);
     var tiles = L.tileLayer(
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
           );

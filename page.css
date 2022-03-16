@@ -21,14 +21,6 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-img{
-    border-radius: 50%;
-    float: left;
-    padding: 10px;
-    height: 128px;
-    width: 128px;
-}
-
 .fieldtitle{
     margin-left: 50px;
 }
