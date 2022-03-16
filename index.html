@@ -30,12 +30,12 @@
   <!-- bottom  -->
   <div id="bottom">
       <div id="bottombasic">
-        <img id="largephoto">
+        <img id="largephoto" src="nopfp2.png">
           <span>
-              <span id="yourname">Your name</span>
+              <div id="yourname">Your name</div>
               <div id="updateyour">update your photo and personal details</div>
           </span>
-      </div>
+      </div><br/><br/>
     
       <div id="bottomfields">
           <!-- username  -->
@@ -123,7 +123,7 @@
       let long=converteddata.results[0].location.coordinates.longitude;
 
     //   map 
-      var mymapview = L.map("mymap").setView([lat, long], 10);
+      var mymapview = L.map("mymap").setView([lat, long], 7);
     var tiles = L.tileLayer(
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
           );
