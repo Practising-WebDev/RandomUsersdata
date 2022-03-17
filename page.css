@@ -10,7 +10,7 @@ body{
     border-top-left-radius: 55px ;
 }
 #hi{
-    height: 26vh;
+    height: 26%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +24,7 @@ body{
     border-top-left-radius: 50px;
 }
 #mymap {
-  height: 26vh;
+  height: 100%;
   width: 74%;
   }
 #yourname {
