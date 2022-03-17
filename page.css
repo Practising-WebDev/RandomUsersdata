@@ -1,16 +1,36 @@
+body{
+    background-color: rgb(228, 178, 169);
+}
 #main {
     /* to center the whole content, set margin auto*/
     margin: auto; 
     width: 1000px;
-    background-color: rgb(244, 247, 247);
+    background-color: rgb(250, 249, 249);
+    overflow: hidden;
+    border-top-left-radius: 55px ;
+}
+#hi{
+    height: 26vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#mil{
+    text-align: center;
+    padding: 80px;
+    font-size: large;
+    font-family: 'Fredoka', sans-serif;
+    background-color: rgb(228, 225, 225);
+    border-top-left-radius: 50px;
 }
 #mymap {
-  height: 20vh;
-  border-radius: 20px;
-}
+  height: 26vh;
+  width: 74%;
+  }
 #yourname {
     font-size: 30px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
     padding: 10px;
 }
 #updateyour {
@@ -19,14 +39,15 @@
 #bottomfields{
     margin-top: 70px;
     font-family:Arial, Helvetica, sans-serif;
+    position: relative;
 }
 
 .fieldtitle{
-    margin-left: 50px;
+    margin-left: 100px;
 }
 .fieldinput{
     position:absolute; 
-    left:520px;
+    left:30%;
   }
 .fieldinputtext{
     border-radius: 6px; 
@@ -34,10 +55,10 @@
 }
 .fieldbutton{
     position:absolute; 
-    left:950px;
-    border-radius: 3px;
-    border: 1px solid black;
-    background-color: rgb(163, 206, 221);
+    left:80%;
+    border-radius: 7px;
+    border: 0.5px black;
+    background-color: rgb(185, 211, 221);
 }
 .bottomfieldunit{
     margin-bottom: 50px;

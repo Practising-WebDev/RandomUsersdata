@@ -1,5 +1,7 @@
 <html>
 <head>
+    <!-- script for fonts  -->
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
 <!-- scripts for moment  -->
     <script src="https://MomentJS.com/downloads/moment.js"></script>
         <!-- scripts for map -->
@@ -23,8 +25,11 @@
 <body>
 <div id="main">
   <!-- map division -->
-  
-  <div id="mymap"></div>
+  <div id="hi">
+
+      <div id="mil">Map with location</div>
+      <div id="mymap"></div>
+  </div>
   
     <!-- bottom  -->
   <div id="bottom">
@@ -36,7 +41,7 @@
         width: 128px;">
           <span>
               <div id="yourname">Your name</div>
-              <div id="updateyour">update your photo and personal details</div>
+              <div id="updateyour">Update your photo and personal details</div>
           </span>
       </div><br/><br/>
     
@@ -110,7 +115,7 @@
       let converteddata = await getdata.json();
       document.getElementById("gender").value = converteddata.results[0].gender;
       document.getElementById("number").value = converteddata.results[0].phone;
-      document.getElementById("yourname").innerHTML = converteddata.results[0].name.title +` ` +converteddata.results[0].name.first +` `+ converteddata.results[0].name.last;
+      document.getElementById("yourname").innerHTML = converteddata.results[0].name.title +` ` + converteddata.results[0].name.first +` `+ converteddata.results[0].name.last;
       document.getElementById("email").value = converteddata.results[0].email;
       document.getElementById("username").value = converteddata.results[0].login.username;
       document.getElementById("address").value = converteddata.results[0].location.street.number+`,`+converteddata.results[0].location.street.name+`,`+converteddata.results[0].location.city+`,`+converteddata.results[0].location.state+`,`+converteddata.results[0].location.country+`,`+converteddata.results[0].location.postcode;
